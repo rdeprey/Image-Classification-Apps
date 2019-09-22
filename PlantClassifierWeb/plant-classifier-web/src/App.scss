@@ -10,14 +10,15 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 10vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   font-size: calc(10px + 2vmin);
   color: white;
   margin-bottom: 20px;
+  padding-left: 1.5rem;
 }
 
 .App-link {
@@ -35,4 +36,10 @@ h1 {
   to {
     transform: rotate(360deg);
   }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

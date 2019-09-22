@@ -1,0 +1,32 @@
+.camera {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.camera__wrapper,
+.camera__canvas-wrapper {
+    position: relative;
+    width: 100%;
+}
+
+.camera__view-finder {
+    // object-fit: cover;
+}
+
+.camera__take-snapshot-button {
+    position: absolute;
+    left: 47%;
+    bottom: 0;
+    background: none;
+}
+
+.camera__take-snapshot-button svg {
+    color: #fff;
+    font-size: 3.5rem;
+}
+
+.camera__wrapper--hidden,
+.camera__canvas--hidden {
+    display: none;
+}

@@ -1,0 +1,38 @@
+.predictions {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.predictions--hidden {
+    display: none;
+}
+
+.predictions__table {
+    width: 88%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.predictions__table tr {
+    padding-bottom: 2rem;
+}
+
+.predictions__table tr:nth-child(2n) {
+    background-color: #e8e7e7;
+}
+
+.predictions__table th {
+    background-color: #a5a5a5;
+}
+
+.predictions__table td {
+    width: 50%;
+}
+
+.predictions__table th,
+.predictions__table td {
+    padding: 0.5rem;
+}
