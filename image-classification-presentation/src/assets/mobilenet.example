@@ -1,0 +1,7 @@
+import * as mobilenet from '@tensorflow-models/mobilenet';
+
+export default async function loadMobileNet(canvas) {
+  let net = await mobilenet.load();
+
+  return await net.classify(canvas);
+}
