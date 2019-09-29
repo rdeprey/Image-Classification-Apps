@@ -1,12 +1,13 @@
 import * as mobilenet from '@tensorflow-models/mobilenet';
 
-export default async function loadMobileNet(canvas) {
+export async function loadMobileNet() {
   console.log('Loading mobilenet..');
 
   // Load the model.
-  let net = await mobilenet.load();
-  console.log('Successfully loaded model');
+  return await mobilenet.load();
+}
 
+export async function classifyImage(model, image) {
   // Classify image and return predictions
-  return await net.classify(canvas);
+  return await model.classify(image);
 }

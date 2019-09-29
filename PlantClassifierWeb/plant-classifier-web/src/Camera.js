@@ -12,6 +12,9 @@ export default function Camera(props) {
         canvasRef,
         cameraIsActive,
         setCameraIsActive,
+        setHasTakenPhoto,
+        requestPrediction,
+        setRequestPrediction,
     } = props;
 
     const getRenderSize = () => {
@@ -25,7 +28,7 @@ export default function Camera(props) {
     };
 
     const [windowDimensions, setWindowDimensions] = useState(getRenderSize());
-    const [requestPrediction, setRequestPrediction] = useState(false);
+
     let context;
 
     useEffect(() => {
@@ -36,7 +39,7 @@ export default function Camera(props) {
         if (cameraIsActive) {
             setRequestPrediction(false);
         }
-    }, [cameraIsActive]);
+    }, [cameraIsActive, setRequestPrediction]);
 
     const takeSnapshot = () => {
         context = canvasRef.current.getContext('2d');
@@ -54,6 +57,7 @@ export default function Camera(props) {
         cameraView.current.srcObject.getVideoTracks().forEach(track => track.stop());
         setCameraIsActive(false);
         setRequestPrediction(true);
+        setHasTakenPhoto(true);
     };
 
     const cameraClasses = classNames(

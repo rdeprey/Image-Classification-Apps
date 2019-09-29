@@ -7,7 +7,7 @@
     background-color:#1414b7;
     color: #ffffff;
     font-size: 1.2rem;
-    min-width: 25%;
+    width: 70%;
 }
 
 .button--stack {
@@ -17,6 +17,6 @@
 
 @media (max-width: 500px) {
     .button--primary {
-        min-width: 80%;
+        width: 80%;
     }
 }
