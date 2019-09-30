@@ -14,8 +14,8 @@ import {
   Quote,
   Slide,
   Text,
-  Code,
-  CodePane
+  Image,
+  CodePane,
 } from 'spectacle';
 
 // Import theme
@@ -73,6 +73,10 @@ export default class Presentation extends React.Component {
           <Heading size={6} textColor="secondary" caps>
             Demo
           </Heading>
+          <Text margin="20px 0 0" textColor="tertiary" size={1}>
+            You can try out the demo by visiting <a href="https://plant-classifier-77263.web.app">https://plant-classifier-77263.web.app</a> or scanning this QR code:<br /><br />
+            <Image src="images/app-qr-code.png" alt="QR code for app" />
+          </Text>
         </Slide>
         <Slide transition={['fade']} bgColor="secondary" textColor="primary">
           <Heading size={5} textColor="tertiary" caps>
@@ -88,7 +92,7 @@ export default class Presentation extends React.Component {
             What is Machine Learning?
           </Heading>
           <Text margin="20px 0 0" textColor="primary" size={1}>
-            Machine learning algorithms create models from "training" data and use those models to make predictions about future as-yet-unseen inputs.
+            A set of algorithms that create models from "training" data and use those models to make predictions about future as-yet-unseen inputs.
           </Text>
           <Text margin="40px 0 0" textColor="primary" size={1}>
             It's well suited to tasks where defining all possible inputs and outputs would be difficult.
@@ -101,7 +105,7 @@ export default class Presentation extends React.Component {
           <Text margin="20px 0 0" textColor="primary" size={1}>
             Machine learning has become a hot topic in the past few years and is used for many different purposes such as:
           </Text>
-          <List textColor="primary" className="list">
+          <List textColor="primary" className="list split-list">
             <ListItem>Spam filters</ListItem>
             <ListItem>Suggested replies</ListItem>
             <ListItem>Face detection</ListItem>
@@ -112,19 +116,21 @@ export default class Presentation extends React.Component {
           <Heading size={5} textColor="primary" caps>
             Define the Problem
           </Heading>
-          <Text margin="20px 0 0" textColor="secondary" size={1}>
-            First step in solving a problem with machine learning is to clearly define the problem that you're trying to solve.
-          </Text>
-          <Text margin="40px 0 0" textColor="secondary" size={1}>
-            For my demo, the problem I wanted to solve was: <br /><br /><em>What is the primary object in a photo?</em>
-          </Text>
+          <div style={{ float: 'left', width: '50%' }}>
+            <Text margin="20px 0 0" textColor="secondary" size={1}>
+              For my demo, the problem I wanted to solve was: <br /><br /><em>What is the primary object in a photo?</em>
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%' }}>
+            <Image src="images/photo-collage.png" alt="Photo examples" />
+          </div>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={5} textColor="tertiary" caps>
             Selecting a Machine Learning Type
           </Heading>
           <Text margin="20px 0 0" textColor="secondary" size={1}>
-            After you define the problem, the next step is to identify the type of machine learning algorithm that can best help solve the problem.
+            Identify the type of machine learning algorithm that can best help solve the problem
           </Text>
           <Text margin="40px 0 0" textColor="secondary" size={1}>
             There are three main types of machine learning:
@@ -140,12 +146,18 @@ export default class Presentation extends React.Component {
             Supervised Learning
           </Heading>
           <Text margin="20px 0 0" textColor="secondary" size={1}>
-            Models are trained with <em>labeled</em> data, which they use to build relationships
-            between input features and target prediction outputs.
-          </Text>
-          <Text margin="40px 0 0" textColor="secondary" size={1}>
-            Useful in cases where there's something specific that you want to look for in the data.
-          </Text>
+              Models are trained with <em>labeled</em> data, which they use to build relationships
+              between input features and target prediction outputs.
+            </Text>
+            <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+              <Text margin="40px 0 0" textColor="secondary" size={1}>
+                Useful in cases where there's something specific that you want to look for in the data.
+              </Text>
+            </div>
+            <div style={{ float: 'right', width: '50%', marginLeft: '20px' }}>
+              <Image src="images/supervised-machine-learning.png" alt="Example supervised machine learning flow" />
+              <small>Atul. (2019, May 22.) <a href="https://www.edureka.co/blog/machine-learning-tutorial/">Machine Learning Tutorial for Beginners</a></small>
+            </div>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={5} textColor="tertiary" caps>
@@ -168,13 +180,21 @@ export default class Presentation extends React.Component {
           <Text margin="20px 0 0" textColor="secondary" size={1}>
             Demo uses the supervised learning approach
           </Text>
-          <Text margin="40px 0 0" textColor="secondary" size={1}>
-            The model is able to predict what's in an image based on the relationships that it learned
-            by being trained on a set of labeled images.
-          </Text>
-          <Text margin="40px 0 0" textColor="secondary" size={1}>
-            This approach is perfect for classification problems
-          </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="secondary" size={1}>
+              The model is able to predict what's in an image based on the relationships that it learned
+              by being trained on a set of labeled images.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px' }}>
+              <Image src="images/cat-dog-classification.gif" alt="Machine learning example" />
+              <small>Tata, Venkatesh. (2017, December 13.) <a href="https://becominghuman.ai/building-an-image-classifier-using-deep-learning-in-python-totally-from-a-beginners-perspective-be8dbaf22dd8">Simple Image Classification using Convolutional Neural Network - Deep Learning in Python</a></small>
+          </div>
+          <div style={{ clear: 'both', paddingTop: '15px', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="secondary" size={1}>
+              This approach is perfect for classification problems
+            </Text>
+          </div>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
           <Heading size={5} textColor="tertiary" caps>
@@ -183,9 +203,15 @@ export default class Presentation extends React.Component {
           <Text margin="20px 0 0" textColor="secondary" size={1}>
             Models are trained with <em>unlabeled</em> data and they learn relationships between input features on their own based on patterns.
           </Text>
-          <Text margin="40px 0 0" textColor="secondary" size={1}>
-            Useful in cases where you're exploring a dataset and may not know what to look for.
-          </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="secondary" size={1}>
+              Useful in cases where you're exploring a dataset and may not know what to look for.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px' }}>
+            <Image src="images/unsupervised-machine-learning.png" alt="Example unsupervised machine learning flow" />
+            <small>Atul. (2019, May 22.) <a href="https://www.edureka.co/blog/machine-learning-tutorial/">Machine Learning Tutorial for Beginners</a></small>
+          </div>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
           <Heading size={5} textColor="tertiary" caps>
@@ -195,9 +221,9 @@ export default class Presentation extends React.Component {
             Example tasks:
           </Text>
           <List textColor="secondary" className="list">
-            <ListItem>Clustering</ListItem>
-            <ListItem>Generative models</ListItem>
-            <ListItem>Unsupervised deep learning</ListItem>
+            <ListItem>Detecting fraudulent transactions</ListItem>
+            <ListItem>"Basket analysis" - seeing what products are often purchased together</ListItem>
+            <ListItem>Segmenting data into groups</ListItem>
           </List>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
@@ -205,41 +231,47 @@ export default class Presentation extends React.Component {
             Reinforcement Learning
           </Heading>
           <Text margin="20px 0 0" textColor="secondary" size={1}>
-            
+            There's no training data. The model learns from experience instead.
           </Text>
-          <Text margin="40px 0 0" textColor="secondary" size={1}>
-            Useful in cases where 
-          </Text>
-          <Text margin="40px 0 0" textColor="secondary" size={1}>
-            Example tasks:
-          </Text>
-          <List textColor="secondary" className="list">
-            <ListItem></ListItem>
-          </List>
+          <div style={{ float: 'left', width: '56%', textAlign: 'left' }}>
+            <Text margin="20px 0 0" textColor="secondary" size={1}>
+              Collects training examples (i.e., this action was "good" or "bad") through trial-and-error as it tries to 
+              complete a task, with goal of maximizing long-term reward.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '40%', marginLeft: '20px', marginTop: '60px' }}>
+            <Image src="images/reinforcement-learning-framework.png" alt="Reinforcement learning framework" />
+            <small>Ravindra, Savaram. (2017, June.) <a href="https://www.kdnuggets.com/2017/06/machine-learning-algorithms-used-self-driving-cars.html">The Machine Learning Algorithms Used in Self-Driving Cars</a></small>
+          </div>
         </Slide>
-        <Slide transition={['fade']} bgColor="tertiary" textColor="primary">
-          <Heading size={5} textColor="secondary" caps>
-            Narrowing in on the Right Algorithm
+        <Slide transition={['fade']} bgColor="primary" textColor="secondary">
+          <Heading size={5} textColor="tertiary" caps>
+            Reinforcement Learning
           </Heading>
-          <Text margin="20px 0 0" textColor="primary" size={1}>
-            Different algorithms support different types of machine learning and solving different problems...
-          </Text>
-          <Text margin="40px 0 0" textColor="primary" size={1}>
-            TALK A LITTLE ABOUT THE ALGORITHMS
-          </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="secondary" size={1}>
+              Example tasks:
+            </Text>
+            <List textColor="secondary" className="list">
+              <ListItem>Self-driving cars</ListItem>
+              <ListItem>Computer as game opponent</ListItem>
+            </List>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px' }}>
+            <Image src="https://media.giphy.com/media/fBnxS9yMW3h96/giphy.gif" alt="Google AlphaGo" />
+          </div>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={5} textColor="secondary" caps>
             Selecting a Machine Learning Framework
           </Heading>
           <Text margin="20px 0 0" textColor="tertiary" size={1}>
-            Like React helps in developing a web app, machine learning frameworks help with creating, training, 
-            and using machine learning models
+            Frameworks help with creating, training, and using machine learning models
           </Text>
           <Text margin="40px 0 0" textColor="tertiary" size={1}>
             Python is primary language used for machine learning, but there are Javascript frameworks available as well:
           </Text>
-          <List textColor="tertiary" className="list">
+          <List textColor="tertiary" className="list split-list">
             <ListItem><a href="https://www.tensorflow.org/js">Tensorflow.js</a></ListItem>
             <ListItem><a href="https://brain.js.org/#/">Brain.js</a></ListItem>
             <ListItem><a href="https://ml5js.org/">ML5.js</a></ListItem>
@@ -249,16 +281,24 @@ export default class Presentation extends React.Component {
           <Heading size={5} textColor="secondary" caps>
             Tensorflow
           </Heading>
-          <Text margin="20px 0 0" textColor="tertiary" size={1}>
-            An open-source library for large-scale machine learning and numerical computation that's developed by Google.
-          </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="20px 0 0" textColor="tertiary" size={1}>
+              An open-source library for large-scale machine learning and numerical computation
+            </Text>
+            <Text margin="40px 0 0" textColor="tertiary" size={1}>
+              Developed and supported by Google
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px' }}>
+            <Image src="images/tensorflow-logo.png" alt="Tensorflow logo" />
+          </div>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={5} textColor="secondary" caps>
             Tensorflow
           </Heading>
           <Text margin="20px 0 0" textColor="tertiary" size={1}>
-            There are multiple Tensorflow libraries for different use cases and technologies, but the demo uses Tensorflow.js.
+            There are multiple Tensorflow libraries for different use cases and technologies including mobile, Internet of Things devices, and Javascript.
           </Text>
           <Text margin="40px 0 0" textColor="tertiary" size={1}>
             Can be used for:
@@ -276,7 +316,7 @@ export default class Presentation extends React.Component {
             Tensorflow<em>.js</em>
           </Heading>
           <Text margin="20px 0 0" textColor="tertiary" size={1}>
-            It's designed to let you train and deploy models <strong>in the browser</strong> and on Node.js!
+            Specifically designed to let you train and deploy models <strong>in the browser</strong> and on Node.js!
           </Text>
           <Text margin="40px 0 0" textColor="tertiary" size={1}>
             Key features:
@@ -292,65 +332,48 @@ export default class Presentation extends React.Component {
             Tensorflow<em>.js</em>
           </Heading>
           <Text margin="40px 0 0" textColor="tertiary" size={1}>
-            Key features continued:
-          </Text>
-          <List textColor="tertiary" className="list">
-            <ListItem>User data can remain on their device</ListItem>
-            <ListItem>Models can be used in offline contexts</ListItem>
-            <ListItem>Uses WebGL/the Tensorflow C API when possible to improve performance</ListItem>
-          </List>
-          <Text margin="40px 0 0" textColor="tertiary" size={1}>
-            Best of all? It's FREE and Google has lots of tutorials to help developers learn how to use it.
-          </Text>
+              More Features:
+            </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <List textColor="tertiary" className="list">
+              <ListItem>User data can remain on their device</ListItem>
+              <ListItem>Models can be used in offline contexts</ListItem>
+              <ListItem>Uses WebGL/the Tensorflow C API when possible to improve performance</ListItem>
+              <ListItem>It's FREE and Google has lots of tutorials to help developers learn how to use it</ListItem>
+            </List>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px' }}>
+            <CodePane 
+              lang="jsx"
+              source={require("!raw-loader!./assets/tensorflowjsimport.example").default}
+              className="code-pane"
+            />
+          </div>
         </Slide>
         <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
-          <Heading size={5} textColor="tertiary" caps>
-            MobileNet v2
+          <Heading size={5} textColor="primary" caps>
+            Back to the Demo...
           </Heading>
-          <Text margin="20px 0 0" textColor="primary" size={1}>
-            In my demo, the question that I wanted to solve is <em>What is teh primary object in a photo?</em>, an image classification problem.
-          </Text>
-          <Text margin="40px 0 0" textColor="primary" size={1}>
-            To do this, I needed a model that was trained on labeled images representing many objects.
-          </Text>
-          <Text margin="40px 0 0" textColor="primary" size={1}>
-            Tensorflow.js has a pre-existing model for this: MobileNet.
-          </Text>
-        </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
-          <Heading size={5} textColor="tertiary" caps>
-            MobileNet v2
-          </Heading>
-          <Text margin="20px 0 0" textColor="primary" size={1}>
-            MobileNets are small, low-latency, low-power, <em>mobile-first</em> computer vision models for Tensorflow that 
-            maximize accuracy while taking into account the constraints of on-device/embedded applications.
-          </Text>
-        </Slide>
-        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
-          <Heading size={5} textColor="tertiary" caps>
-            MobileNet v2
-          </Heading>
-          <Text margin="20px 0 0" textColor="primary" size={1}>
-            Main difference between v1 and v2 is improved performance.
-          </Text>
-          <Text margin="40px 0 0" textColor="primary" size={1}>
-            Can also build upon them with your own data through <em>transfer learning</em>
-          </Text>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary" textColor="secondary">
           <Heading size={5} textColor="secondary" caps>
-            Getting an Image
+            Getting an Image to Classify
           </Heading>
-          <Text margin="20px 0 0" textColor="primary" size={1}>
-            Great <a href="https://caniuse.com/#search=mediadevices">browser support for the MediaDevices API</a>, which gives you access to a device's camera.
-          </Text>
-          <Text margin="40px 0 0" textColor="primary" size={1}>
-            Image isn't saved to the device, but it's available to the MobileNet for classification
-          </Text>
+          <div style={{ float: 'left', width: '60%', textAlign: 'left' }}>
+            <Text margin="20px 0 0" textColor="primary" size={1}>
+              There's great <a href="https://caniuse.com/#search=mediadevices">browser support for the MediaDevices API</a>, which gives you access to a device's camera.
+            </Text>
+            <Text margin="40px 0 0" textColor="primary" size={1}>
+              Image isn't saved to the device, but it's available to the MobileNet for classification
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '40%' }}>
+            <Image src="images/demo.gif" alt="Demo example" style={{ width: '70%' }} />
+          </div>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary" textColor="secondary">
           <Heading size={5} textColor="secondary" caps>
-            Getting an Image
+            Getting an Image to Classify
           </Heading>
           <Text margin="20px 0 0" textColor="primary" size={1}>
             Taking a photo through the web browser takes a few steps:
@@ -378,20 +401,72 @@ export default class Presentation extends React.Component {
             ]}
             style={{ fontSize: '0.7em' }}
         />
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            In my demo, the question that I wanted to solve is <em>What is the primary object in a photo?</em>, an image classification problem.
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            To do this, I needed a model that was trained on labeled images representing many objects...
+          </Text>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Tensorflow.js has a pre-existing model for this
+          </Heading>
+          <Heading size={5} textColor="tertiary" margin="40px 0">
+            <em>MobileNet</em>!
+          </Heading>
+          <Image src="https://media.giphy.com/media/pylpD8AoQCf3CQ1oO2/giphy.gif" alt="Lightbulb" />
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            MobileNet
+          </Heading>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            Small, low-latency, low-power, <em>mobile-first</em> computer vision models for Tensorflow that 
+            maximize accuracy while taking into account the constraints of on-device/embedded applications.
+          </Text>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            MobileNet
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            Multiple versions to choose from based on your performance budget
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            Can identify about 1,000 objects out of the box based on the <a target="_blank" style={{ color: '#ffffff' }} href="http://image-net.org/index">ImageNet project</a>
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            Can also build upon them with your own data through <em>transfer learning</em>
+          </Text>
+        </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="secondary">
           <Heading size={5} textColor="tertiary" caps>
-            Working with MobileNet v2
+            Working with a MobileNet
           </Heading>
           <Text margin="20px 0 0" textColor="secondary" size={1}>
-            To use a pre-trained MobileNet model, you have to:
+            To use a pre-trained MobileNet model:
           </Text>
           <List ordered start={1} className="list">
             <ListItem>Load the model</ListItem>
             <ListItem>Pass the model input data</ListItem>
           </List>
           <Text margin="20px 0 0" textColor="secondary" size={1}>
-            MobileNets accept Tensor3d objects, as well as HTML canvas, HTML image, and HTML video elements as inputs to generate predictions from.
-          </Text>
+              MobileNets can make predictions from:
+            </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <List className="list">
+              <ListItem>HTML canvas</ListItem>
+              <ListItem>HTML image</ListItem>
+              <ListItem>HTML video</ListItem>
+              <ListItem>Tensor3D objects<br />(<em>3-</em>dimensional array)</ListItem>
+            </List>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px', marginTop: '15px' }}>
+            <Image src="images/scalar-vector-matrix-tensor.png" alt="Tensors vs. matrices" />
+            <small>Hadrienj. (2018, March 26.) <a href="https://hadrienj.github.io/posts/Deep-Learning-Book-Series-2.1-Scalars-Vectors-Matrices-and-Tensors/">Deep Learning Book Series: 2.1 Scalars Vectors Matrices and Tensors</a></small>
+          </div>
         </Slide>
         <CodeSlide
             transition={[]}
@@ -399,11 +474,11 @@ export default class Presentation extends React.Component {
             bgColor="secondary"
             code={require("!raw-loader!./assets/mobilenet.example").default}
             ranges={[
-              { loc: [0, 7], title: "Load and Use a MobileNet" },
+              { loc: [0, 9], title: "Load and Use a MobileNet" },
               { loc: [0, 1], title: "Load and Use a MobileNet", note: "Import the MobileNet model as an NPM module"},
               { loc: [2, 3], title: "Load and Use a MobileNet", note: "Create an async function to load and use the MobileNet" },
               { loc: [3, 4], title: "Load and Use a MobileNet", note: "Load the MobileNet" },
-              { loc: [5, 6], title: "Load and Use a MobileNet", note: "Classify the element passed to the MobileNet after the model as loaded" },
+              { loc: [6, 9], title: "Load and Use a MobileNet", note: "Classify the element passed to the MobileNet" },
             ]}
             style={{ fontSize: '0.7em' }}
         />
@@ -412,7 +487,7 @@ export default class Presentation extends React.Component {
             How Does Image Classification Work?
           </Heading>
           <Text margin="20px 0 0" textColor="primary" size={1}>
-            Using the trained model, the computer makes a prediction about what the image is by selecting the label with the highest probability score.
+            Using the trained model (a MobileNet), the computer makes a prediction about what the image is by selecting the label with the highest probability score.
           </Text>
           <Text margin="40px 0 0" textColor="primary" size={1}>
             ADD MORE INFO HERE
@@ -429,6 +504,14 @@ export default class Presentation extends React.Component {
             A mobile net trained on just hot dogs, tacos, and cheeseburgers wouldn't be able to identify a pizza.
             Instead, it would label the pizza with an identifier it knows and that seems the most <em>similar</em> 
             to the pizza but with a low probability score.
+          </Text>
+        </Slide>
+        <Slide transition={['fade']} bgColor="tertiary" textColor="tertiary">
+          <Heading size={5} textColor="secondary" caps>
+            Why Are the Results So Bad Sometimes?
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            Results can also be negatively impacted by the amount of light in a photo, the focal point, the angle, etc.
           </Text>
         </Slide>
       </Deck>

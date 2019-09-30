@@ -1,3 +1,16 @@
+.spectacle-deck ul {
+    list-style-position: outside;
+    margin-left: 40px;
+}
+
+.spectacle-deck .split-list {
+    margin-left: 20px;
+    column-count: 2;
+    column-gap: 40px;
+    column-width: 50%;
+    height: 150px;
+}
+
 ul li ul {
     margin-left: 60px;
 }
@@ -21,6 +34,9 @@ pre {
     font-size: 1.6em!important;
     overflow-wrap: break-word;
 }
+.list.center {
+    text-align: center;
+}
 .list li {
     font-size: 2rem;
     margin: 15px 0;
@@ -39,4 +55,12 @@ blockquote.quote a {
 }
 pre code {
     color: #ffffff;
+}
+.spectacle-deck p {
+    line-height: 1.2;
+    text-align: left;
+}
+small {
+    font-size: 12px;
+    display: inline-block;
 }

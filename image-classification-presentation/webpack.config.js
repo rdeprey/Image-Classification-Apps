@@ -1,4 +1,5 @@
 module.exports = {
+  entry: ['react-hot-loader/patch'],
   module: {
     rules: [
       {
