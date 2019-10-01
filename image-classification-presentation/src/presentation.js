@@ -64,9 +64,9 @@ export default class Presentation extends React.Component {
           <List>
             <ListItem>Demo</ListItem>
             <ListItem>What is Machine Learning?</ListItem>
-            <ListItem>What is Image Classification?</ListItem>
-            <ListItem>Training a Model</ListItem>
-            <ListItem>Making Predictions Based on a Model</ListItem>
+            <ListItem>Approaches to Machine Learning Problems</ListItem>
+            <ListItem>Getting Started with Tensorflow.js</ListItem>
+            <ListItem>How Does Image Classification Work?</ListItem>
           </List>
         </Slide>
         <Slide transition={['fade']} bgColor="primary" textColor="tertiary">
@@ -490,12 +490,158 @@ export default class Presentation extends React.Component {
             Using the trained model (a MobileNet), the computer makes a prediction about what the image is by selecting the label with the highest probability score.
           </Text>
           <Text margin="40px 0 0" textColor="primary" size={1}>
-            ADD MORE INFO HERE
+            This is done through something called a Convolutional Neural Net (CNN).
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            MobileNets, under the hood, are convolutional neural nets.
+          </Text>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="20px 0 0" textColor="primary" size={1}>
+              When a computer "sees" an image, it sees a 2D array array of numbers that represent pixel colors in the image.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px', marginTop: '15px' }}>
+            <Image src="images/cnn0.png" alt="CNN example" />
+            <small>Rohrer, Brandon. (2016, August 18.) <a style={{ color: '#ffffff' }} href="https://brohrer.github.io/how_convolutional_neural_networks_work.html">How Do Convolutional Neural Networks Work?</a></small>
+          </div>
+          <div style={{ clear: 'both', paddingTop: '15px', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="primary" size={1}>
+              Comparisons are very literal - if the pixels don't match in a given position then it's a non-match, regardless of other content in the image.
+            </Text>
+          </div>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="20px 0 0" textColor="primary" size={1}>
+              This is where convolutional neural nets come in.
+            </Text>
+            <Text margin="40px 0 0" textColor="primary" size={1}>
+              A CNN is a type of multilayered neural network designed to take advantage of the 2D structure of an input image.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px', marginTop: '15px' }}>
+            <Image src="images/cnn1.png" alt="CNN example" />
+            <small>Rohrer, Brandon. (2016, August 18.) <a style={{ color: '#ffffff' }} href="https://brohrer.github.io/how_convolutional_neural_networks_work.html">How Do Convolutional Neural Networks Work?</a></small>
+          </div>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            CNNs analyze images piece by piece, looking for <strong>features</strong>.
+          </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="primary" size={1}>
+              Each feature is a mini-image, composed of a small 2D array and they match common parts of the image.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px', marginTop: '45px' }}>
+            <Image src="images/cnn2.png" alt="CNN example" />
+            <small>Rohrer, Brandon. (2016, August 18.) <a style={{ color: '#ffffff' }} href="https://brohrer.github.io/how_convolutional_neural_networks_work.html">How Do Convolutional Neural Networks Work?</a></small>
+          </div>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            Analyzing by pieces helps a CNN recognize rough feature matches in roughly the same area, so they can match whole images reasonably well.
+          </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="primary" size={1}>
+              When a CNN gets a new image, it doesn't know where the features will match, so it looks for them throughout the whole image.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px', marginTop: '45px' }}>
+            <Image src="images/cnn3.png" alt="CNN example" />
+            <small>Rohrer, Brandon. (2016, August 18.) <a style={{ color: '#ffffff' }} href="https://brohrer.github.io/how_convolutional_neural_networks_work.html">How Do Convolutional Neural Networks Work?</a></small>
+          </div>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            Each feature is calculated across every piece of the whole image, forming a <strong>filter</strong>.
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            To calculate the match of a feature to a piece of the image:<br /><br />
+            <em>Number of pixels in the feature x Value of corresponding pixels in the image</em><br /><br />
+            Then, add the results of the calculation above and divide by the total number of pixels in the feature.
+          </Text>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            Every matching pixel results in a 1 and a mismatch is a -1.
+          </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left' }}>
+            <Text margin="40px 0 0" textColor="primary" size={1}>
+              If all of the pixels in a feature match, then adding the values and dividing by the total number of pixels equals 1. No matches would result in -1.
+            </Text>
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px', marginTop: '45px' }}>
+            <Image src="images/cnn4.png" alt="CNN example" />
+            <small>Rohrer, Brandon. (2016, August 18.) <a style={{ color: '#ffffff' }} href="https://brohrer.github.io/how_convolutional_neural_networks_work.html">How Do Convolutional Neural Networks Work?</a></small>
+          </div>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            This process is repeated for every feature.
+          </Text>
+            <Text margin="40px 0 0" textColor="primary" size={1}>
+              A new 2D array is made from the answer from each filter based on where in the image each piece is located.
+            </Text>
+          <div style={{ float: 'left', width: '46%', textAlign: 'left', marginTop: '10px' }}>
+            <Image src="images/cnn5.png" alt="CNN example" />
+          </div>
+          <div style={{ float: 'right', width: '50%', marginLeft: '20px', marginTop: '10px' }}>
+            <Image src="images/cnn6.png" alt="CNN example" />
+          </div>
+          <small>Rohrer, Brandon. (2016, August 18.) <a style={{ color: '#ffffff' }} href="https://brohrer.github.io/how_convolutional_neural_networks_work.html">How Do Convolutional Neural Networks Work?</a></small>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <Text margin="20px 0 0" textColor="primary" size={1}>
+            <strong>Backpropagation</strong> determines the features of the image.
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            During training, each <em>labeled</em> processed image has an error amount assessed on it.
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            It tells you how good the features and weights are.
+          </Text>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="tertiary" caps>
+            Convolutional Neural Nets (CNNs)
+          </Heading>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            Values are adjusted to decrease the amount of error.
+          </Text>
+          <Text margin="40px 0 0" textColor="primary" size={1}>
+            Patterns that occur in lots of images get "baked into" the features and weights
           </Text>
         </Slide>
         <Slide transition={['fade']} bgColor="tertiary" textColor="tertiary">
           <Heading size={5} textColor="secondary" caps>
-            Why Are the Results So Bad Sometimes?
+            Why Are the Results Still So Bad Sometimes?
           </Heading>
           <Text margin="20px 0 0" textColor="primary" size={1}>
             The computer can only classify images based on the types of images it's been trained on.
@@ -511,8 +657,19 @@ export default class Presentation extends React.Component {
             Why Are the Results So Bad Sometimes?
           </Heading>
           <Text margin="20px 0 0" textColor="primary" size={1}>
-            Results can also be negatively impacted by the amount of light in a photo, the focal point, the angle, etc.
+            Results can also be negatively impacted by things like:
           </Text>
+          <List textColor="primary" className="list">
+            <ListItem>The amount of light in a photo</ListItem>
+            <ListItem>The focal point</ListItem>
+            <ListItem>The angle</ListItem>
+            <ListItem>The volume of images the model was trained on</ListItem>
+          </List>
+        </Slide>
+        <Slide transition={['fade']} bgColor="secondary" textColor="tertiary">
+          <Heading size={5} textColor="primary" caps>
+            Questions?
+          </Heading>
         </Slide>
       </Deck>
     );
