@@ -51,7 +51,7 @@ export default class Presentation extends React.Component {
       >
         <Slide transition={['zoom']} bgColor="primary">
           <Heading size={1} fit caps lineHeight={1} textColor="secondary">
-            Image Classification with Tensorflow.js
+            Getting Started with Image Classification with Tensorflow.js
           </Heading>
           <Text margin="10px 0 0" textColor="tertiary" size={3}>
             October 1, 2019
