@@ -1,57 +1,15 @@
 import * as tf from '@tensorflow/tfjs';
-import image1 from './roaming-gnome-data/train/66666031_429005191161791_4059693116689707642_n.jpg';
-import image2 from './roaming-gnome-data/train/66951138_709752599466100_8452059073074455381_n.jpg';
-import image3 from './roaming-gnome-data/train/67067341_141211713763598_4163311221416932011_n.jpg';
-import image4 from './roaming-gnome-data/train/67169558_167122074450639_1419495025748381850_n.jpg';
-import image5 from './roaming-gnome-data/train/67791123_502440850544776_6881530551811977080_n.jpg';
-import image6 from './roaming-gnome-data/train/67833790_506825270135214_4529723587407201164_n.jpg';
-import image7 from './roaming-gnome-data/train/70182562_133966837922902_8976080069302847050_n.jpg';
-import image8 from './roaming-gnome-data/train/70677073_2218255548285324_2585962131801263733_n.jpg';
-import image9 from './roaming-gnome-data/train/71169801_752387091859117_7643508668502813209_n.jpg';
-import image10 from './roaming-gnome-data/train/4yRcS2Zo.png';
-import image11 from './roaming-gnome-data/train/waldo2.png';
-import image12 from './roaming-gnome-data/train/waldo3.jpeg';
-import image13 from './roaming-gnome-data/train/waldo4.png';
-import image14 from './roaming-gnome-data/train/waldo5.jpeg';
-// import blackImage from './roaming-gnome-data/train/black.jpg';
-// import whiteImage from './roaming-gnome-data/train/white.jpg';
+import image1 from './simple/custom-1.jpg';
+import image2 from './simple/custom-2.jpg';
 
 const images = [
-    // blackImage,
-    // whiteImage,
     image1,
     image2,
-    image3,
-    image4,
-    image5,
-    image6,
-    image7,
-    image8,
-    image9,
-    image10,
-    image11,
-    image12,
-    image13,
-    image14,
 ];
 
 const labels = [
-    // 'black',
-    // 'white',
-    'roaming gnome',
-    'roaming gnome',
-    'roaming gnome',
-    'roaming gnome',
-    'roaming gnome',
-    'roaming gnome',
-    'roaming gnome',
-    'roaming gnome',
-    'roaming gnome',
-    'waldo',
-    'waldo',
-    'waldo',
-    'waldo',
-    'waldo',
+    'x',
+    'o',
 ];
 
 tf.setBackend('webgl');
@@ -241,13 +199,9 @@ const makePrediction = (pretrainedModel, model, image) => {
       const prediction = model.predict(activatedImage);
       const mostLikelyValue = prediction.as1D().argMax();
       const predictionLabel = (await mostLikelyValue.data())[0];
-
-      console.log(prediction);
-      console.log(predictionLabel);
-
       return {
           prediction: prediction,
-          predictionLabel: predictionLabel,
+          predictionLabel: labels[predictionLabel],
       };
     }).catch(err => {
         console.log('err: ', err);
