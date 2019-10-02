@@ -1,5 +1,0 @@
-// Import the Tensorflow.js library
-import * as tf from '@tensorflow/tfjs';
-
-// Import a model library to use with it
-import * as mobilenet from '@tensorflow-models/mobilenet';
