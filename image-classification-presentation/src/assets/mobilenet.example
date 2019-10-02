@@ -1,9 +1,0 @@
-import * as mobilenet from '@tensorflow-models/mobilenet';
-
-export async function loadMobileNet() {
-  return await mobilenet.load();
-}
-
-export async function classifyImage(model, image) {
-  return await model.classify(image);
-}
